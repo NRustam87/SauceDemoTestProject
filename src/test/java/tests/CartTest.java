@@ -22,16 +22,17 @@ public class CartTest extends Preconditions {
 
     @Test(dataProvider = "products")
     public void addProductToCartWithDataProviderTest(String product){
-        productSteps.loginAndAddProduct(System.getenv().getOrDefault("USERNAME", PropertyReader.getProperty("USERNAME")),PASSWORD,product);
+        productSteps.loginAndAddProduct(USERNAME,PASSWORD,product);
         cartPage.openCartPage(CART_PAGE_URL);
         Assert.assertTrue(cartPage.isProductDisplayed(product));
     }
 
     @Test
     public void addProductToCartTest(){
+        //productSteps.loginAndAddProduct(System.getenv().getOrDefault("USERNAME", PropertyReader.getProperty("USERNAME")),PASSWORD,product);
         productSteps.loginAndAddProduct(USERNAME,PASSWORD,SAUCE_LABS_BACKPACK);
         cartPage.openCartPage(CART_PAGE_URL);
-        Assert.assertEquals(cartPage.getProductPrice(SAUCE_LABS_BACKPACK), "$19.99");
+        Assert.assertEquals(cartPage.getProductPrice(SAUCE_LABS_BACKPACK), "$29.99");
     }
 
     @Test(dataProvider = "products")
@@ -53,7 +54,7 @@ public class CartTest extends Preconditions {
 
     @Test(retryAnalyzer = Retry.class)
     public void checkQuantityTest() {
-        productSteps.loginAndAddProduct(System.getenv().getOrDefault("USERNAME", PropertyReader.getProperty("USERNAME")), PASSWORD, SAUCE_LABS_BACKPACK);
+        productSteps.loginAndAddProduct(USERNAME, PASSWORD, SAUCE_LABS_BACKPACK);
         productsPage.addProductToCart(SAUCE_LABS_FLEECE_JACKET);
         cartPage.openCartPage(CART_PAGE_URL);
         Assert.assertEquals(cartPage.getProductQuantity().toString(),"2");

@@ -13,7 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <hamcrest.version>3.0</hamcrest.version>
-        <selenium-java.version>4.28.1</selenium-java.version>
+        <selenium-java.version>4.29.0</selenium-java.version>
         <testng.version>7.4.0</testng.version>
         <webdrivermanager.version>5.9.3</webdrivermanager.version>
         <lombok.version>1.18.36</lombok.version>
