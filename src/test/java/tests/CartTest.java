@@ -30,7 +30,8 @@ public class CartTest extends Preconditions {
     @Test
     public void addProductToCartTest(){
         //productSteps.loginAndAddProduct(System.getenv().getOrDefault("USERNAME", PropertyReader.getProperty("USERNAME")),PASSWORD,product);
-        productSteps.loginAndAddProduct(USERNAME,PASSWORD,SAUCE_LABS_BACKPACK);
+        //productSteps.loginAndAddProduct(USERNAME,PASSWORD,SAUCE_LABS_BACKPACK);
+        productSteps.loginAndAddProduct(System.getProperty("username"),PASSWORD,SAUCE_LABS_BACKPACK);
         cartPage.openCartPage(CART_PAGE_URL);
         Assert.assertEquals(cartPage.getProductPrice(SAUCE_LABS_BACKPACK), "$29.99");
     }
